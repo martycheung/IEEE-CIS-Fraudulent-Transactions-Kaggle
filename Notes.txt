@@ -1,0 +1,15 @@
+- baseline model- performance ~0.9357 (no CV, so unstable)
+- target is to get single model >0.945 
+- CV and LB needs to match closely
+- CV testing - need a trustworthy CV scheme to test against
+	- Kfold - shuffle False might be more realistic - the CV score seems to match the LB score - lets use this for now
+	- Stratified K fold - 
+	- timeseriessplit - poor result
+- Train AUC=1, Validation AUC's very high >0.97, but LB AUC is 0.92 - overfitting - validation continues to increase even with early stopping.
+- Feature set now up to 467(actually only <25 features, need more!)
+- Very crude RFE (without CV) select 200 features. RFECV doesn't fit in RAM on kaggle
+
+KFold Tests
+- Kfold with holdout - CV ~0.9340,LB 0.9318
+- kfold noholdout -  CV: 0.9317; LB: 0.9417
+- 470 features - CV: 0.9340; LB: 0.9437
